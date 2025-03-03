@@ -1,0 +1,104 @@
+:root {
+  --var1: #f5f4f0;
+  --var2: #453f3a;
+  --var-selection: #f5f4f0aa;
+}
+
+@font-face {
+  font-family: LM Roman;
+  src: url("lmroman8-regular.febd001e.otf") format("opentype");
+}
+
+.CodeMirror-cursor {
+  border: 1px solid var(--var1);
+  border-radius: 1rem;
+  margin-left: 2px;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: var(--var2);
+  justify-content: center;
+  width: 100%;
+  height: 100dvh;
+  max-height: 100dvh;
+  display: flex;
+  overflow: hidden;
+}
+
+.cm-formatting {
+  color: var(--var1) !important;
+}
+
+.cm-hmd-list-indent {
+  color: #0000 !important;
+}
+
+.CodeMirror {
+  color: var(--var1);
+  box-sizing: border-box;
+  background-color: #0000;
+  width: 100%;
+  height: 100dvh;
+  padding: 2rem;
+  max-height: 100dvh !important;
+  overflow: hidden !important;
+}
+
+.CodeMirror-gutters, .CodeMirror-gutter-wrapper {
+  display: none;
+}
+
+.cm-editor {
+  height: 50rem;
+}
+
+.cm-scroller {
+  overflow: auto;
+}
+
+.CodeMirror {
+  font-family: Fira Code, monospace;
+  font-size: 1.5rem;
+}
+
+.CodeMirror-selected {
+  border-radius: .5rem;
+  background: var(--var-selection) !important;
+}
+
+.cm-header {
+  font-family: LM Roman;
+}
+
+.cm-s-hypermd-light pre.HyperMD-quote:before {
+  width: 5px;
+  background-image: none !important;
+  background-color: var(--var1) !important;
+}
+
+.cm-quote {
+  color: var(--var1) !important;
+}
+
+.cm-formatting-quote {
+  color: #0000 !important;
+}
+
+.CodeMirror-line:after {
+  background-color: #f5f4f044 !important;
+  display: none !important;
+}
+
+.HyperMD-codeblock-bg, .CodeMirror-linebackground {
+  background-color: #0000 !important;
+}
+
+.cm-formatting-task {
+  background-image: url("check_light.4dcbed8c.png") !important;
+}
+/*# sourceMappingURL=index.0186b26d.css.map */
