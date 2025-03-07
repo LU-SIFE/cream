@@ -38,6 +38,7 @@ body {
 .cm-s-hypermd-light span.cm-inline-code {
     color: var(--var1) !important;
     font-size: 100% !important;
+    font-family: "Fira Code", monospace;
 }
 
 
