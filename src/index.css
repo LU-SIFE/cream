@@ -35,6 +35,11 @@ body {
     color: var(--var1) !important;
 }
 
+.cm-s-hypermd-light span.cm-inline-code {
+    color: var(--var1) !important;
+    font-size: 100% !important;
+}
+
 
 .cm-hmd-list-indent {color: transparent !important;}
 
