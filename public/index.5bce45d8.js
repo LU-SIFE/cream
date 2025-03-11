@@ -46450,14 +46450,65 @@ var $3da87ddc4a220fcd$var$myTextarea = document.getElementById("myTextarea");
 var $3da87ddc4a220fcd$var$editor = $ae8c4d6773892d61$exports.fromTextArea($3da87ddc4a220fcd$var$myTextarea, {
     /* optional editor options here */ hmdModeLoader: false
 });
+let $3da87ddc4a220fcd$var$pages = [];
+let $3da87ddc4a220fcd$var$page_index = 0;
 window.onload = function() {
-    if (localStorage.getItem("content") === null) return;
-    $3da87ddc4a220fcd$var$editor.setValue(localStorage.getItem("content"));
+    if (localStorage.getItem("pages") !== null) {
+        $3da87ddc4a220fcd$var$pages = JSON.parse(localStorage.getItem("pages"));
+        $3da87ddc4a220fcd$var$editor.setValue($3da87ddc4a220fcd$var$pages[0].content);
+    }
 };
 document.addEventListener("keyup", function() {
-    console.log($3da87ddc4a220fcd$var$editor.getValue());
-    localStorage.setItem("content", $3da87ddc4a220fcd$var$editor.getValue());
+    $3da87ddc4a220fcd$var$savePage();
+});
+function $3da87ddc4a220fcd$var$savePage() {
+    if ($3da87ddc4a220fcd$var$pages[$3da87ddc4a220fcd$var$page_index]) $3da87ddc4a220fcd$var$pages[$3da87ddc4a220fcd$var$page_index].content = $3da87ddc4a220fcd$var$editor.getValue();
+    else $3da87ddc4a220fcd$var$pages[$3da87ddc4a220fcd$var$page_index] = {
+        content: $3da87ddc4a220fcd$var$editor.getValue(),
+        timestamp: Date.now()
+    };
+    localStorage.setItem("pages", JSON.stringify($3da87ddc4a220fcd$var$pages));
+}
+function $3da87ddc4a220fcd$var$addPage() {
+    $3da87ddc4a220fcd$var$savePage();
+    $3da87ddc4a220fcd$var$pages.push({
+        content: "# Page " + ($3da87ddc4a220fcd$var$pages.length + 1),
+        timestamp: Date.now()
+    });
+    $3da87ddc4a220fcd$var$page_index = $3da87ddc4a220fcd$var$pages.length - 1;
+    $3da87ddc4a220fcd$var$editor.setValue($3da87ddc4a220fcd$var$pages[$3da87ddc4a220fcd$var$page_index].content);
+    localStorage.setItem("pages", JSON.stringify($3da87ddc4a220fcd$var$pages));
+}
+function $3da87ddc4a220fcd$var$switchPage(index) {
+    if (index < 0 || index >= $3da87ddc4a220fcd$var$pages.length) return;
+    $3da87ddc4a220fcd$var$savePage();
+    $3da87ddc4a220fcd$var$page_index = index;
+    $3da87ddc4a220fcd$var$editor.setValue($3da87ddc4a220fcd$var$pages[$3da87ddc4a220fcd$var$page_index].content);
+}
+// Example event listeners for navigating between pages
+document.getElementById("next").addEventListener("click", function() {
+    if ($3da87ddc4a220fcd$var$page_index < $3da87ddc4a220fcd$var$pages.length - 1) $3da87ddc4a220fcd$var$switchPage($3da87ddc4a220fcd$var$page_index + 1);
+    else $3da87ddc4a220fcd$var$addPage();
+});
+document.getElementById("prev").addEventListener("click", function() {
+    if ($3da87ddc4a220fcd$var$page_index > 0) $3da87ddc4a220fcd$var$switchPage($3da87ddc4a220fcd$var$page_index - 1);
+});
+document.getElementById('sidebar').addEventListener("mouseover", function() {
+    document.getElementById('sidebar').style.opacity = 1;
+});
+document.getElementById('sidebar').addEventListener("mouseout", function() {
+    document.getElementById('sidebar').style.opacity = 0;
+});
+let $3da87ddc4a220fcd$var$menu_state = false;
+document.getElementById('settings').addEventListener("click", function() {
+    if ($3da87ddc4a220fcd$var$menu_state === false) {
+        document.getElementById('menu').style.display = 'block';
+        $3da87ddc4a220fcd$var$menu_state = true;
+    } else {
+        document.getElementById('menu').style.display = 'none';
+        $3da87ddc4a220fcd$var$menu_state = false;
+    }
 });
 
 
-//# sourceMappingURL=index.c6d3bebf.js.map
+//# sourceMappingURL=index.5bce45d8.js.map

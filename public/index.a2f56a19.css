@@ -107,4 +107,77 @@ body {
 .cm-formatting-task {
   background-image: url("check_light.4dcbed8c.png") !important;
 }
-/*# sourceMappingURL=index.ba8f4c94.css.map */
+
+.cm-math {
+  color: var(--var1) !important;
+  background-color: #0000 !important;
+}
+
+#sidebar {
+  opacity: 0;
+  background-color: #ffffff1a;
+  border: none;
+  border-radius: 2rem;
+  flex-direction: column;
+  margin: .5rem;
+  padding: .5rem;
+  transition: all .12s;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+#sidebar * {
+  cursor: pointer;
+}
+
+#sidebar button {
+  background-color: #fff3;
+  border: none;
+  border-radius: 2.5rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  padding: .7rem;
+}
+
+#sidebar button:hover {
+  background-color: #ffffff4d;
+}
+
+#sidebar button img {
+  width: 100%;
+  height: 100%;
+}
+
+#prev {
+  margin-top: auto;
+  rotate: 180deg;
+}
+
+.page_control {
+  margin-top: auto;
+}
+
+#settings {
+  margin-left: auto;
+}
+
+#menu {
+  border: 1px solid var(--var1);
+  width: 50%;
+  height: 80%;
+  color: var(--var1);
+  box-sizing: border-box;
+  background-color: #453f3a;
+  border-radius: 1rem;
+  padding: 2rem;
+  font-family: Fira Code, monospace;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+/*# sourceMappingURL=index.a2f56a19.css.map */
